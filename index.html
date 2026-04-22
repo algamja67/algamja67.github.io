@@ -34,34 +34,36 @@
       padding: 25px;
       margin-bottom: 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      border: 1px solid #e5e7eb;
     }
 
-    /* 프로필 */
     .profile {
       display: flex;
       gap: 20px;
       align-items: center;
     }
 
-    .profile img {
+    .profile-avatar {
       width: 100px;
       height: 100px;
       border-radius: 50%;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      object-fit: cover;
+      flex-shrink: 0;
     }
 
-    /* GitHub 버튼 (작게 수정됨) */
     .github-btn {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      margin-top: 8px;
-      padding: 6px 10px;
+      gap: 8px;
+      margin-top: 10px;
+      padding: 8px 12px;
       background: #0f172a;
       color: white;
-      border-radius: 8px;
+      border-radius: 10px;
       text-decoration: none;
       font-size: 13px;
+      font-weight: 600;
       transition: 0.2s;
     }
 
@@ -70,33 +72,36 @@
       transform: translateY(-1px);
     }
 
-    .github-btn img {
-      width: 14px;
-      height: 14px;
+    .github-icon {
+      width: 16px;
+      height: 16px;
+      border-radius: 0;
+      box-shadow: none;
+      object-fit: contain;
+      display: block;
     }
 
-    /* grid */
     .grid {
       display: grid;
       grid-template-columns: 1fr 1.2fr;
       gap: 20px;
     }
 
-    /* 기술 스택 */
     .skills {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
+      margin-bottom: 18px;
     }
 
     .skill {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 8px 14px;
       border-radius: 999px;
       background: #f1f5f9;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #dbe4ee;
       font-size: 14px;
       font-weight: 600;
       transition: 0.2s;
@@ -110,9 +115,10 @@
     .skill img {
       width: 18px;
       height: 18px;
+      object-fit: contain;
+      flex-shrink: 0;
     }
 
-    /* 프로젝트 */
     .project-card {
       position: relative;
       padding: 20px;
@@ -128,11 +134,10 @@
       box-shadow: 0 10px 20px rgba(0,0,0,0.08);
     }
 
-    /* 상태 배지 */
     .badge {
       position: absolute;
-      top: 15px;
-      right: 15px;
+      top: 14px;
+      right: 14px;
       padding: 6px 12px;
       border-radius: 999px;
       font-size: 12px;
@@ -158,11 +163,28 @@
     ul {
       padding-left: 20px;
       line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    h2, h3, h4, p {
+      margin-top: 0;
     }
 
     @media (max-width: 900px) {
       .grid {
         grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .profile {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .profile-avatar {
+        width: 84px;
+        height: 84px;
       }
     }
   </style>
@@ -174,64 +196,67 @@
 
   <h1 class="page-title">개인 이력서</h1>
 
-  <!-- 프로필 -->
   <div class="card profile">
-    <img src="https://cdn-icons-png.flaticon.com/512/6997/6997662.png">
+    <img
+      class="profile-avatar"
+      src="https://cdn-icons-png.flaticon.com/512/6997/6997662.png"
+      alt="프로필 이미지"
+    >
 
     <div>
       <h2>차지현</h2>
-      <p>임베디드, IoT, 웹 개발을 공부하고 있습니다.</p>
+      <p>임베디드와 로봇 관련 개발을 공부하고 있습니다.</p>
       <p>이메일: thskr03@gmail.com</p>
 
       <a href="https://github.com/algamja67" target="_blank" class="github-btn">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg">
-        GitHub
+        <img
+          class="github-icon"
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+          alt="GitHub"
+        >
+        GitHub 바로가기
       </a>
     </div>
   </div>
 
   <div class="grid">
 
-    <!-- 기술 스택 -->
     <div class="card">
       <h2>기술 스택</h2>
 
       <h4>Front-End</h4>
       <div class="skills">
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg">React</div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">HTML</div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg">CSS</div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="">React</div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="">HTML</div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="">CSS</div>
       </div>
 
       <h4>Back-End</h4>
       <div class="skills">
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg">Java</div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg">Spring</div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="">Java</div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="">Spring</div>
       </div>
 
       <h4>Database</h4>
       <div class="skills">
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg">MySQL</div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="">MySQL</div>
       </div>
 
       <h4>System</h4>
       <div class="skills">
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg">Linux</div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="">Linux</div>
       </div>
 
       <h4>Embedded / IoT</h4>
       <div class="skills">
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg">C</div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg">Arduino</div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="">C</div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg" alt="">Arduino</div>
         <div class="skill">MQTT</div>
         <div class="skill">ESP32</div>
       </div>
-
     </div>
 
-    <!-- 프로젝트 -->
     <div>
-
       <div class="card">
         <h2>프로젝트 경험</h2>
 
@@ -257,18 +282,15 @@
             <li>3D 모델링 및 설계</li>
           </ul>
         </div>
-
       </div>
 
       <div class="card">
         <h2>교육</h2>
         <p>컴퓨터공학 전공 (재학 중) 2024 ~</p>
       </div>
-
     </div>
 
   </div>
-
 </div>
 
 </body>
