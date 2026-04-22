@@ -16,49 +16,57 @@
     }
 
     .container {
-      max-width: 1150px;
-      margin: auto;
-      padding: 50px 20px;
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 28px 18px 36px;
     }
 
     .page-title {
-      font-size: 34px;
+      font-size: 30px;
       font-weight: 800;
-      margin-bottom: 25px;
+      margin: 0 0 18px;
     }
 
     .card {
-      background: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.92);
       backdrop-filter: blur(10px);
-      border-radius: 22px;
-      padding: 25px;
-      margin-bottom: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      border-radius: 20px;
+      padding: 22px;
+      margin-bottom: 16px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.07);
       border: 1px solid #e5e7eb;
     }
 
-    /* 프로필 */
     .profile {
       display: flex;
-      gap: 20px;
+      gap: 18px;
       align-items: center;
     }
 
     .profile-avatar {
-      width: 100px;
-      height: 100px;
+      width: 92px;
+      height: 92px;
       border-radius: 50%;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
       object-fit: cover;
       flex-shrink: 0;
     }
 
-    /* GitHub 버튼 */
+    .profile h2 {
+      margin: 0 0 8px;
+      font-size: 22px;
+    }
+
+    .profile p {
+      margin: 0 0 8px;
+      line-height: 1.5;
+    }
+
     .github-btn {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      margin-top: 8px;
+      margin-top: 6px;
       padding: 6px 10px;
       background: #0f172a;
       color: white;
@@ -78,31 +86,41 @@
       height: 14px;
     }
 
-    /* grid */
     .grid {
       display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 20px;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: start;
     }
 
-    /* 기술 스택 */
+    .card h2 {
+      margin: 0 0 14px;
+      font-size: 20px;
+    }
+
+    .card h4 {
+      margin: 16px 0 8px;
+      font-size: 15px;
+    }
+
     .skills {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 18px;
+      gap: 8px;
+      margin-bottom: 12px;
     }
 
     .skill {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
+      gap: 7px;
+      padding: 7px 12px;
       border-radius: 999px;
       background: #f1f5f9;
       border: 1px solid #dbe4ee;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
+      line-height: 1;
       transition: 0.2s;
     }
 
@@ -112,18 +130,19 @@
     }
 
     .skill img {
-      width: 18px;
-      height: 18px;
+      width: 17px;
+      height: 17px;
+      object-fit: contain;
+      flex-shrink: 0;
     }
 
-    /* 프로젝트 */
     .project-card {
       position: relative;
-      padding: 20px;
+      padding: 18px;
       border-radius: 16px;
       background: #f8fafc;
       border: 1px solid #e2e8f0;
-      margin-bottom: 15px;
+      margin-bottom: 14px;
       transition: 0.2s;
     }
 
@@ -132,14 +151,22 @@
       box-shadow: 0 10px 20px rgba(0,0,0,0.08);
     }
 
+    .project-card h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      padding-right: 92px;
+      line-height: 1.4;
+    }
+
     .badge {
       position: absolute;
       top: 14px;
       right: 14px;
-      padding: 6px 12px;
+      padding: 6px 10px;
       border-radius: 999px;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
+      white-space: nowrap;
     }
 
     .done {
@@ -159,9 +186,13 @@
     }
 
     ul {
-      padding-left: 20px;
-      line-height: 1.6;
-      margin-bottom: 0;
+      padding-left: 18px;
+      line-height: 1.55;
+      margin: 10px 0 0;
+    }
+
+    li + li {
+      margin-top: 4px;
     }
 
     @media (max-width: 900px) {
@@ -169,119 +200,144 @@
         grid-template-columns: 1fr;
       }
     }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 20px 14px 28px;
+      }
+
+      .profile {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .profile-avatar {
+        width: 82px;
+        height: 82px;
+      }
+
+      .project-card h3 {
+        padding-right: 0;
+      }
+
+      .badge {
+        position: static;
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+    }
   </style>
 </head>
 
 <body>
+  <div class="container">
+    <h1 class="page-title">개인 이력서</h1>
 
-<div class="container">
+    <div class="card profile">
+      <img
+        class="profile-avatar"
+        src="https://cdn-icons-png.flaticon.com/512/6997/6997662.png"
+        alt="프로필 이미지"
+      >
 
-  <h1 class="page-title">개인 이력서</h1>
+      <div>
+        <h2>차지현</h2>
+        <p>임베디드, IoT, 웹 개발을 공부하고 있습니다.</p>
+        <p>이메일: thskr03@gmail.com</p>
 
-  <!-- 프로필 -->
-  <div class="card profile">
-    <img class="profile-avatar"
-         src="https://cdn-icons-png.flaticon.com/512/6997/6997662.png">
-
-    <div>
-      <h2>차지현</h2>
-      <p>임베디드, IoT, 웹 개발을 공부하고 있습니다.</p>
-      <p>이메일: thskr03@gmail.com</p>
-
-      <a href="https://github.com/algamja67" target="_blank" class="github-btn">
-        <img class="github-icon"
-             src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg">
-        GitHub
-      </a>
-    </div>
-  </div>
-
-  <div class="grid">
-
-    <!-- 기술 스택 -->
-    <div class="card">
-      <h2>기술 스택</h2>
-
-      <h4>Front-End</h4>
-      <div class="skills">
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg">React</div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">HTML</div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg">CSS</div>
+        <a href="https://github.com/algamja67" target="_blank" class="github-btn">
+          <img
+            class="github-icon"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+            alt="GitHub"
+          >
+          GitHub
+        </a>
       </div>
-
-      <h4>Back-End</h4>
-      <div class="skills">
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg">Java</div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg">Spring</div>
-      </div>
-
-      <h4>Database</h4>
-      <div class="skills">
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg">MySQL</div>
-      </div>
-
-      <h4>System</h4>
-      <div class="skills">
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg">Linux</div>
-      </div>
-
-      <h4>Embedded / IoT</h4>
-      <div class="skills">
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg">C</div>
-        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg">Arduino</div>
-        <div class="skill">MQTT</div>
-        <div class="skill">ESP32</div>
-      </div>
-
-      <h4>3D Modeling</h4>
-      <div class="skills">
-        <div class="skill">SolidWorks (학습 중)</div>
-        <div class="skill">Autodesk Fusion 360 (학습 중)</div>
-      </div>
-
     </div>
 
-    <!-- 프로젝트 -->
-    <div>
-
+    <div class="grid">
       <div class="card">
-        <h2>프로젝트 경험</h2>
+        <h2>기술 스택</h2>
 
-        <div class="project-card">
-          <span class="badge done">완료</span>
-          <h3>전국 교통사고 데이터 분석 웹서비스</h3>
-          <a href="https://github.com/algamja67/school" target="_blank">GitHub</a>
-          <ul>
-            <li>Streamlit 기반 데이터 분석 웹서비스 구현</li>
-            <li>데이터 전처리 및 분석 로직 구현</li>
-            <li>그래프 시각화</li>
-          </ul>
+        <h4>Front-End</h4>
+        <div class="skills">
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="">React</div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="">HTML</div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="">CSS</div>
         </div>
 
-        <div class="project-card">
-          <span class="badge progress">현재 진행 중</span>
-          <h3>AI 기반 IoT 스마트 약통 앱 &lt;지켜약&gt;</h3>
-          <ul>
-            <li>ESP32 기반 하드웨어 설계 및 센서 구성</li>
-            <li>IR 센서 복용 감지 로직 구현</li>
-            <li>LED / 부저 알림 기능 구현</li>
-            <li>MQTT 통신 구조 설계</li>
-            <li>3D 모델링 및 설계</li>
-          </ul>
+        <h4>Back-End</h4>
+        <div class="skills">
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="">Java</div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="">Spring(학습 중)</div>
         </div>
 
+        <h4>Database</h4>
+        <div class="skills">
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="">MySQL</div>
+        </div>
+
+        <h4>System</h4>
+        <div class="skills">
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="">Linux</div>
+        </div>
+
+        <h4>Embedded / IoT</h4>
+        <div class="skills">
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="">C</div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg" alt="">Arduino</div>
+          <div class="skill">MQTT(학습 중)</div>
+          <div class="skill">ESP32(학습 중)</div>
+        </div>
+
+        <h4>3D Modeling</h4>
+        <div class="skills">
+          <div class="skill">
+            <img src="https://img.icons8.com/color/48/3d-select.png" alt="">
+            SolidWorks (학습 중)
+          </div>
+          <div class="skill">
+            <img src="https://img.icons8.com/color/48/autodesk.png" alt="">
+            Autodesk Fusion 360 (학습 중)
+          </div>
+        </div>
       </div>
 
-      <div class="card">
-        <h2>교육</h2>
-        <p>컴퓨터공학 전공 (재학 중) 2024 ~</p>
-      </div>
+      <div>
+        <div class="card">
+          <h2>프로젝트 경험</h2>
 
+          <div class="project-card">
+            <span class="badge done">완료</span>
+            <h3>전국 교통사고 데이터 분석 웹서비스</h3>
+            <a href="https://github.com/algamja67/school" target="_blank">GitHub</a>
+            <ul>
+              <li>Streamlit 기반 데이터 분석 웹서비스 구현</li>
+              <li>데이터 전처리 및 분석 로직 구현</li>
+              <li>그래프 시각화</li>
+            </ul>
+          </div>
+
+          <div class="project-card">
+            <span class="badge progress">현재 진행 중</span>
+            <h3>AI 기반 IoT 스마트 약통 앱 &lt;지켜약&gt;</h3>
+            <ul>
+              <li>ESP32 기반 하드웨어 설계 및 센서 구성</li>
+              <li>IR 센서 복용 감지 로직 구현</li>
+              <li>LED / 부저 알림 기능 구현</li>
+              <li>MQTT 통신 구조 설계</li>
+              <li>3D 모델링 및 설계</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>교육</h2>
+          <p>컴퓨터공학 전공 (재학 중) 2024 ~</p>
+        </div>
+      </div>
     </div>
-
   </div>
-
-</div>
-
 </body>
 </html>
