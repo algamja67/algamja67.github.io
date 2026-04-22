@@ -6,31 +6,37 @@
   <title>개인 이력서</title>
 
   <style>
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f1f5f9;
+      font-family: "Pretendard", "Noto Sans KR", sans-serif;
+      background: linear-gradient(135deg, #eef4ff, #f8fbff);
+      color: #1e293b;
     }
 
     .container {
-      max-width: 1100px;
+      max-width: 1150px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 50px 20px;
     }
 
-    h1 {
-      font-size: 32px;
-      margin-bottom: 20px;
+    .page-title {
+      font-size: 34px;
+      font-weight: 800;
+      margin-bottom: 25px;
     }
 
     .card {
-      background: white;
-      padding: 20px;
-      border-radius: 15px;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(10px);
+      border-radius: 22px;
+      padding: 25px;
       margin-bottom: 20px;
-      border: 1px solid #ddd;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
 
+    /* 프로필 */
     .profile {
       display: flex;
       gap: 20px;
@@ -38,23 +44,45 @@
     }
 
     .profile img {
-      width: 80px;
-      height: 80px;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
+    /* GitHub 버튼 (작게 수정됨) */
     .github-btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: black;
+      gap: 6px;
+      margin-top: 8px;
+      padding: 6px 10px;
+      background: #0f172a;
       color: white;
-      padding: 8px 12px;
       border-radius: 8px;
       text-decoration: none;
-      margin-top: 10px;
+      font-size: 13px;
+      transition: 0.2s;
     }
 
+    .github-btn:hover {
+      background: #1e293b;
+      transform: translateY(-1px);
+    }
+
+    .github-btn img {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* grid */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 20px;
+    }
+
+    /* 기술 스택 */
     .skills {
       display: flex;
       flex-wrap: wrap;
@@ -62,22 +90,80 @@
     }
 
     .skill {
-      background: #e0f2fe;
-      padding: 8px 12px;
-      border-radius: 8px;
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.2s;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
+    .skill:hover {
+      transform: translateY(-2px);
+      background: #e0f2fe;
+    }
+
+    .skill img {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* 프로젝트 */
+    .project-card {
+      position: relative;
+      padding: 20px;
+      border-radius: 16px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      margin-bottom: 15px;
+      transition: 0.2s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    }
+
+    /* 상태 배지 */
+    .badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .done {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .progress {
+      background: #dbeafe;
+      color: #1d4ed8;
+    }
+
+    a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
     }
 
     ul {
       padding-left: 20px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -86,7 +172,7 @@
 
 <div class="container">
 
-  <h1>개인 이력서</h1>
+  <h1 class="page-title">개인 이력서</h1>
 
   <!-- 프로필 -->
   <div class="card profile">
@@ -94,12 +180,12 @@
 
     <div>
       <h2>차지현</h2>
-      <p>임베디드와 로봇 관련 개발을 공부하고 있습니다.</p>
+      <p>임베디드, IoT, 웹 개발을 공부하고 있습니다.</p>
       <p>이메일: thskr03@gmail.com</p>
 
       <a href="https://github.com/algamja67" target="_blank" class="github-btn">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" width="16">
-        GitHub 바로가기
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg">
+        GitHub
       </a>
     </div>
   </div>
@@ -112,31 +198,33 @@
 
       <h4>Front-End</h4>
       <div class="skills">
-        <div class="skill">React</div>
-        <div class="skill">HTML/CSS</div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg">React</div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">HTML</div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg">CSS</div>
       </div>
 
       <h4>Back-End</h4>
       <div class="skills">
-        <div class="skill">Java</div>
-        <div class="skill">Spring</div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg">Java</div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg">Spring</div>
       </div>
 
       <h4>Database</h4>
       <div class="skills">
-        <div class="skill">MySQL</div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg">MySQL</div>
       </div>
 
       <h4>System</h4>
       <div class="skills">
-        <div class="skill">Linux</div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg">Linux</div>
       </div>
 
       <h4>Embedded / IoT</h4>
       <div class="skills">
-        <div class="skill">C</div>
-        <div class="skill">Arduino</div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg">C</div>
+        <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg">Arduino</div>
         <div class="skill">MQTT</div>
+        <div class="skill">ESP32</div>
       </div>
 
     </div>
@@ -147,21 +235,28 @@
       <div class="card">
         <h2>프로젝트 경험</h2>
 
-        <h3>전국 교통사고 데이터 분석 웹서비스</h3>
-        <a href="https://github.com/algamja67/school" target="_blank">GitHub</a>
-        <ul>
-          <li>Streamlit 기반 데이터 분석 웹서비스 구현</li>
-          <li>데이터 전처리 및 분석 로직 구현</li>
-          <li>그래프 시각화</li>
-        </ul>
+        <div class="project-card">
+          <span class="badge done">완료</span>
+          <h3>전국 교통사고 데이터 분석 웹서비스</h3>
+          <a href="https://github.com/algamja67/school" target="_blank">GitHub</a>
+          <ul>
+            <li>Streamlit 기반 데이터 분석 웹서비스 구현</li>
+            <li>데이터 전처리 및 분석 로직 구현</li>
+            <li>그래프 시각화</li>
+          </ul>
+        </div>
 
-        <h3>AI 기반 IoT 스마트 약통 앱 &lt;지켜약&gt;</h3>
-        <ul>
-          <li>ESP32 기반 하드웨어 설계 및 센서 구성</li>
-          <li>IR 센서 복용 감지 로직 구현</li>
-          <li>LED / 부저 알림 기능 구현</li>
-          <li>MQTT 통신 구조 설계</li>
-        </ul>
+        <div class="project-card">
+          <span class="badge progress">현재 진행 중</span>
+          <h3>AI 기반 IoT 스마트 약통 앱 &lt;지켜약&gt;</h3>
+          <ul>
+            <li>ESP32 기반 하드웨어 설계 및 센서 구성</li>
+            <li>IR 센서 복용 감지 로직 구현</li>
+            <li>LED / 부저 알림 기능 구현</li>
+            <li>MQTT 통신 구조 설계</li>
+            <li>3D 모델링 및 설계</li>
+          </ul>
+        </div>
 
       </div>
 
